@@ -1,0 +1,28 @@
+*{
+    font-family: "Lucida Console", Monaco, monospace;
+}
+body{
+    background-image : url("./images/background.png");
+}
+.button_slide {
+    color: rgb(0, 0, 0);
+    padding: 15px 30px;
+    display: inline-block;
+    font-size: 20px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #fdac33;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+    }
+    .slide_right:hover {
+    color: #ac5e15;
+    box-shadow: inset 400px 0 0 0 #fdac33;
+    text-decoration: none;
+    }
+    .slide_left:hover {
+    color: #ac5e15;
+    box-shadow: inset 400px 0 0 0 #fdac33;
+    text-decoration: none;
+    }
