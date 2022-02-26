@@ -75,19 +75,19 @@ function validate(v){
 function login(){
     const nam = document.getElementById('name');
     const password = document.getElementById('password');
-    const form = document.getElementById('form');
 
     var login = new Promise((resolve, reject) => {
         if (nam.value === "admin" && password.value === 12345){
+            console.log("validated")
             resolve();
         }
         else if(password.value !==12345 ){
-            alert("Incorrect Password!")
+            console.log("Incorrect Password!")
             reject();
         }
         else if (nam.value !== "admin"){
-            alert("Incorrect Username!")
+            console.log("Incorrect Username!")
             reject();
         }
-    }).then(form.setAttribute('action','todolist.html'))
+    }).then($("form").attr("action","todolist.html"))
 }
