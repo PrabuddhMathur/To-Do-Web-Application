@@ -65,7 +65,7 @@ function validate(v){
     })
     .then(()=>{
         setTimeout(()=>{
-            alert("You have completed 5 tasks!");
+            alert("Congrats! 5 Tasks have been Successfully Completed");
         },100)
         
     }).catch((a)=>{
