@@ -1,8 +1,4 @@
-function validate(){
-    let uname = document.getElementById('uname');
-    let pasw = document.getElementById('pasw');
-    console.log(uname,pasw)
-};
+
 
 function reset(){
     var inputs = document.querySelectorAll('#notDone');
@@ -39,7 +35,8 @@ $(document).ready(function(){
                             $(document.createElement("input")).attr({
                                 type: "checkbox",
                                 onchange: "validate(this);",
-                                id : "notDone"
+                                id : "notDone",
+                                
                             })
                         )
                         .append("<label class='mx-2'>" + value.title + "</label>"+ " <br>"));
@@ -74,3 +71,23 @@ function validate(v){
     }).catch((a)=>{
         })
 };
+
+function login(){
+    const nam = document.getElementById('name');
+    const password = document.getElementById('password');
+    const form = document.getElementById('form');
+
+    var login = new Promise((resolve, reject) => {
+        if (nam.value === "admin" && password.value === 12345){
+            resolve();
+        }
+        else if(password.value !==12345 ){
+            alert("Incorrect Password!")
+            reject();
+        }
+        else if (nam.value !== "admin"){
+            alert("Incorrect Username!")
+            reject();
+        }
+    }).then(form.setAttribute('action','todolist.html'))
+}
