@@ -3,7 +3,6 @@ function reset(){
     for (var i =0; i< inputs.length; i++){
         inputs[i].checked = false
     }
-    console.log("this is working")
     counter = 0;
     }
 var tt,tc,tic = 0;
