@@ -140,3 +140,10 @@ function valid(callback){
 function check(){
     return true;
 }
+
+
+function details(){
+    var username=document.getElementById("name");
+    var password=document.getElementById("password");
+    return [username.value = 'admin',password.value = 12345]
+}
