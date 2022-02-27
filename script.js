@@ -1,5 +1,3 @@
-
-
 function reset(){
     var inputs = document.querySelectorAll('#notDone');
     for (var i =0; i< inputs.length; i++){
@@ -72,22 +70,73 @@ function validate(v){
         })
 };
 
-function login(){
-    const nam = document.getElementById('name');
-    const password = document.getElementById('password');
-
-    var login = new Promise((resolve, reject) => {
-        if (nam.value === "admin" && password.value === 12345){
-            console.log("validated")
-            resolve();
+function valid(callback){
+    var fixedusername=/admin/;
+    var fixedpassword=/12345/;
+    var username=document.getElementById("name");
+    var password=document.getElementById("password");
+    var usernameerror=document.getElementById("nameerror");
+    var passworderror=document.getElementById("passworderror");
+        
+    var a;
+    var b;
+    if(username.value.trim()==""){
+        usernameerror.textContent="Username can't be empty";
+        usernameerror.style.color="red";
+            a=0;
+    } if(password.value.trim()==""){
+        passworderror.textContent="Password can't be empty";
+        passworderror.style.color="red";
+            b=0;
+    }
+    if(username.value.trim()!=""){
+        
+        if(username.value.length<6){
+            if(fixedusername.test(username.value)){
+                a=1;
+                usernameerror.innerHTML="";
+            }else{
+                a=0;
+                usernameerror.style.color="red";
+            usernameerror.textContent="Invalid user name";
+            }
+            
         }
-        else if(password.value !==12345 ){
-            console.log("Incorrect Password!")
-            reject();
+        else{
+            a=0;
+            usernameerror.style.color="red";
+            usernameerror.textContent="Invalid user name";
+       }
+    }
+    if(password.value.trim()!=""){
+        if(password.value.length<6){
+            if(fixedpassword.test(password.value)){
+                b=1;
+                
+                passworderror.innerHTML="";
+            }else{
+                passworderror.style.color="red";
+                passworderror.textContent="Invalid password";
+                b=0;
+            }
+            
+            
+        }else{
+            b=0;
+            passworderror.style.color="red";
+            passworderror.textContent="Invalid password";
         }
-        else if (nam.value !== "admin"){
-            console.log("Incorrect Username!")
-            reject();
-        }
-    }).then($("form").attr("action","todolist.html"))
+    }
+    if(a==1&&b==1){
+            var z=callback();
+            if(z==true){
+                return true;
+            }
+    }
+    else{
+        return false;
+    }
+}
+function check(){
+    return true;
 }

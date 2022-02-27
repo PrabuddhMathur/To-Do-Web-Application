@@ -28,14 +28,16 @@
     <!-- Login Form -->
     <div class="container-sm border border-dark border-2 m" style="height:auto; width:40%; margin-top: 7%;">
       <h2 class="text-center p-2"><ins>Login Form</ins></h2>
-      <form id="form" action="todolist.html"  method ='get'>
+      <form id="form" action="todolist.html" onsubmit="return valid(check);">
         <div class="container" style="width:90%;">
 
           <label><b>Username</b></label>
-          <input id ="name" name="name" type="text" placeholder="Enter Username" required>
+          <input id ="name" name="name" type="text" placeholder="Enter Username" onkeyup ="valid();" required>
+          <label for="nameerror" id="nameerror"></label><br>
 
           <label><b>Password</b></label>
-          <input id="password" name="password" type="password" placeholder="Enter Password" required>
+          <input id="password" name="password" type="password" placeholder="Enter Password" onkeyup="valid();" required>
+          <label for="passworderror" id="passworderror"></label><br>
           <label>
             <input type="checkbox" checked="checked" name="remember"> Remember me
           </label>
